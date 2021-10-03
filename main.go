@@ -14,26 +14,5 @@ func main() {
 	}
 
 	gl.GroupCloneAllProjects(token, "10299617")
-	//	x, _ := json.MarshalIndent(subgroups, "", "    ")
-	//	fmt.Println(string(x), subgroupsID)
-
-	//	rec(subgroupsID, token)
 
 }
-
-//func rec(subgroupsID []string, token string) {
-//
-//	if len(subgroupsID) != 0 {
-//		for _, i := range subgroupsID {
-//
-//			fmt.Println(i)
-//
-//			g, subgroupsID := gl.GetSubgroups(token, i)
-//			x, _ := json.MarshalIndent(g, "", "    ")
-//			fmt.Println(string(x), subgroupsID)
-//
-//			rec(subgroupsID, token)
-//		}
-//	}
-//
-//}
