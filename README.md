@@ -1,6 +1,5 @@
 # git
 Handy Git Automations
-<<<<<<< HEAD
 
 ## Cloning Gitlab Projects
 
@@ -21,5 +20,3 @@ cloneall -gl "<Gitlab Group ID>" "<Path to Private Key>"
 
 
 
-=======
->>>>>>> 73e3664543c866a95c3bb5c97409f494972386d2
