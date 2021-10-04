@@ -1,6 +1,8 @@
 # git
 Handy Git Automations
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/blinchik/git)](https://goreportcard.com/report/github.com/blinchik/git)
+
 ## Cloning Gitlab Projects
 
 This command allow you to clone all Projects under a given Gitlab Group and all of it's Subgroubs
