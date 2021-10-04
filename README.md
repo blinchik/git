@@ -1,4 +1,4 @@
-# git
+# Blinchik-git
 Handy Git Automations
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/blinchik/git)](https://goreportcard.com/report/github.com/blinchik/git)
