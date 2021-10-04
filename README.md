@@ -3,7 +3,10 @@ Handy Git Automations
 
 ## Cloning Gitlab Projects
 
-This command allow you to clone all Projects under a given Gitlab Group and all of it's Subgroubs
+This command allow you to clone all Projects under a given Gitlab Group and all of it's Subgroubs. 
+
+The Gitlab private access token should be set as environment variable `"GITLAB_PRIVATE_TOKEN"`
+
 
 ```sh
 # Build and move to user available scripts
