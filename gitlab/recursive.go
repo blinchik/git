@@ -20,8 +20,18 @@ import (
 // getSshKeyAuth read private key and return AuthMethod
 func getSshKeyAuth(privateSshKeyFile string) transport.AuthMethod {
 	var auth transport.AuthMethod
-	sshKey, _ := ioutil.ReadFile(privateSshKeyFile)
-	signer, _ := ssh.ParsePrivateKey([]byte(sshKey))
+	sshKey, err := ioutil.ReadFile(privateSshKeyFile)
+	if err != nil {
+		log.Fatal(err)
+
+	}
+
+	signer, err := ssh.ParsePrivateKey([]byte(sshKey))
+	if err != nil {
+		log.Fatal(err)
+
+	}
+
 	auth = &gitgoSSH.PublicKeys{User: "git", Signer: signer}
 	return auth
 }
