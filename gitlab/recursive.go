@@ -61,7 +61,12 @@ func GroupCloneAllProjects(groupID, key string) {
 
 		defer wg.Done()
 
-		opt := &gitlab.ListGroupProjectsOptions{}
+		opt := &gitlab.ListGroupProjectsOptions{
+			ListOptions: gitlab.ListOptions{
+				PerPage: 100,
+				Page:    1,
+			}}
+
 		projects, _, err := git.Groups.ListGroupProjects(groupID, opt)
 
 		if err != nil {
