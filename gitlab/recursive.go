@@ -1,6 +1,7 @@
 package gl
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -84,7 +85,7 @@ func GroupCloneAllProjects(groupID, key string) {
 		for _, i := range projects {
 			fmt.Printf("Cloning %s into %s \n", i.Path, fullPath)
 
-			repoLocalPath := fmt.Sprintf("%s/%s\n", fullPath, i.Path)
+			repoLocalPath := fmt.Sprintf("%s/%s", fullPath, i.Path)
 
 			_, err := gitgo.PlainClone(repoLocalPath, false, &gitgo.CloneOptions{
 
@@ -94,8 +95,9 @@ func GroupCloneAllProjects(groupID, key string) {
 			})
 
 			if err != nil {
-				log.Fatal(err)
-
+				if !errors.Is(err, gitgo.ErrRepositoryAlreadyExists) {
+					log.Fatal(err)
+				}
 			}
 
 		}
