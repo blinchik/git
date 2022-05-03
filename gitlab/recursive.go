@@ -9,6 +9,7 @@ import (
 	"os/user"
 	"strconv"
 	"sync"
+	"strings"
 
 	"github.com/xanzy/go-gitlab"
 	"golang.org/x/crypto/ssh"
@@ -118,12 +119,13 @@ func GroupCloneAllProjects(groupID, key string) {
 		}
 
 		for _, i := range groups {
-			os.MkdirAll(i.FullPath, os.ModePerm)
+			FullPath := strings.ReplaceAll(i.FullPath, " ", "_")
+			os.MkdirAll(path, os.ModePerm)
 
 			searchSubgroups(strconv.Itoa(i.ID))
 
 			wg.Add(1)
-			go cloneProjects(strconv.Itoa(i.ID), i.FullPath, &wg)
+			go cloneProjects(strconv.Itoa(i.ID), FullPath, &wg)
 		}
 
 		wg.Wait()
